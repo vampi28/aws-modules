@@ -12,8 +12,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Checkout private action repository
+        uses: actions/checkout@v4
+        with:
+          repository: vampi28/actions
+          token: ${{ secrets.ACTIONS_PAT }}
+
       - name: Terraform Plan
-        uses: vampi28/actions/terraform-plan-aws-deploy-action@main
+        uses: ./terraform-plan-aws-deploy-action
         with:
           terraform_version: 1.0.0
           terraform_working_dir: ./terraform-s3-module
