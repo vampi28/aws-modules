@@ -1,0 +1,20 @@
+name: Terraform plan
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  terraform_plan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Terraform Plan
+        uses: vampi28/actions/terraform-plan-aws-deploy-action@main
+        with:
+          terraform_version: 1.0.0
+          terraform_working_dir: ./terraform-s3-module
+          terraform_command: plan
