@@ -22,5 +22,5 @@ jobs:
         uses: ./terraform-plan-aws-deploy-action
         with:
           terraform_version: 1.0.0
-          terraform_working_dir: ./terraform-s3-module
+          terraform_working_dir: ./main.tf
           terraform_command: plan
