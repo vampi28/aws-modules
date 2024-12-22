@@ -21,6 +21,4 @@ jobs:
       - name: Terraform Plan
         uses: ./terraform-plan-aws-deploy-action
         with:
-          terraform_version: 1.0.0
           terraform_directory: '.'
-          terraform_command: plan
