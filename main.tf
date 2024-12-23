@@ -8,27 +8,31 @@ terraform {
 }
 
 provider "aws" {
-  region                      = "us-east-1"
-  access_key                  = "test"
-  secret_key                  = "test"
-  skip_credentials_validation = true
-  skip_requesting_account_id  = true
-  skip_metadata_api_check     = true
-  skip_region_validation      = true
+  region = "us-east-1"
+}
 
-  endpoints {
-    s3 = "http://localhost:4566"
+
+module "s3_bucket_1" {
+  source        = "./terraform-s3-module"
+  bucket_name   = "my-dynamic-bucket-diego-28"
+  force_destroy = true
+
+  tags = {
+    Environment = "DEV"
+    Project     = "Dynamic-Tags"
+    Owner       = "Diego"
+    Team        = "DevOps"
   }
 }
 
 
-module "s3_bucket" {
+module "s3_bucket_2" {
   source        = "./terraform-s3-module"
-  bucket_name   = "my-dynamic-bucket"
+  bucket_name   = "my-dynamic-bucket-diego-29"
   force_destroy = true
 
   tags = {
-    Environment = "LocalStack"
+    Environment = "DEV"
     Project     = "Dynamic-Tags"
     Owner       = "Diego"
     Team        = "DevOps"
