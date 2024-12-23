@@ -1,24 +1,24 @@
-name: Terraform plan
+# name: Terraform plan
 
-on:
-  push:
-    branches:
-      - main
+# on:
+#   push:
+#     branches:
+#       - main
 
-jobs:
-  terraform_plan:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+# jobs:
+#   terraform_plan:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v4
 
-      - name: Checkout private action repository
-        uses: actions/checkout@v4
-        with:
-          repository: vampi28/actions
-          token: ${{ secrets.ACTIONS_PAT }}
+#       - name: Checkout private action repository
+#         uses: actions/checkout@v4
+#         with:
+#           repository: vampi28/actions
+#           token: ${{ secrets.ACTIONS_PAT }}
 
-      - name: Terraform Plan
-        uses: ./terraform-plan-aws-deploy-action
-        with:
-          terraform_directory: '.'
+#       - name: Terraform Plan
+#         uses: ./terraform-plan-aws-deploy-action
+#         with:
+#           terraform_directory: '.'
