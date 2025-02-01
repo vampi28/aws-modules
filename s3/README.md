@@ -1,8 +1,3 @@
-Aquí tienes un ejemplo de un archivo `README.md` para el módulo de creación de buckets S3 en AWS basado en tu estructura y el ejemplo proporcionado:
-
----
-
-```markdown
 # Módulo Terraform para S3 en AWS
 
 ## Introducción
