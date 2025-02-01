@@ -19,7 +19,7 @@ Este módulo configura alarmas de CPU y memoria para monitorizar el Auto Scaling
 ### [Security Group](security_group/readme.md)
 Este módulo crea un Security Group con reglas de entrada (ingress) y de salida (egress) en AWS.
 
-### [S3](s3/README.md)
+### [S3](s3/readme.md)
 Este módulo crea y gestiona buckets de S3 en AWS, incluyendo configuración de versionado y cifrado del lado del servidor.
 
 ## Requisitos Previos
