@@ -41,7 +41,7 @@ module "s3_bucket" {
   tags = {
     Environment = "Production"
     Project     = "Dynamic-Tags"
-    Owner       = "Diego"
+    Owner       = "sys-admin"
     Team        = "DevOps"
   }
 }
