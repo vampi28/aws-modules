@@ -24,6 +24,10 @@ Este módulo crea un Security Group con reglas de entrada (ingress) y de salida 
 ### [S3](s3/readme.md)
 Este módulo crea y gestiona buckets de S3 en AWS, incluyendo configuración de versionado y cifrado del lado del servidor.
 
+### [WAF](waf/readme.md)
+Este módulo crea y configura un Web Application Firewall (WAF) en AWS para proteger tus aplicaciones web de ataques comunes.
+
+
 ## Requisitos Previos
 
 - Una cuenta de AWS con permisos adecuados para gestionar los recursos.

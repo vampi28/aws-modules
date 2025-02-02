@@ -42,7 +42,10 @@ Las variables pueden ser modificadas al realizar la llamada al módulo:
 | `default_ttl`                   | Tiempo de vida (TTL) por defecto para los objetos en la caché de CloudFront. | `number`       | 3600              | No          |
 | `max_ttl`                       | Tiempo máximo de vida (TTL) para los objetos en la caché de CloudFront.      | `number`       | 86400             | No          |
 | `cloudfront_invalidation_paths` | Lista de rutas para invalidar en CloudFront.                                 | `list(string)` | `["/*"]`          | No          |
+| `aws_access_key_id`             | AWS Access Key ID.                                                           | `string`       | -                 | Sí          |
+| `aws_secret_access_key`         | AWS Secret Access Key.                                                       | `string`       | -                 | Sí          |
 | `tags`                          | Mapa de etiquetas que se asignarán dinámicamente a la distribución.          | `map(string)`  | `{}`              | No          |
+| `allowed_countries`             | Lista de códigos de país permitidos (ISO 3166-1 alpha-2).                    | `list(string)` | `["US"]`    | No          |
 
 ## Ejemplo de uso
 
@@ -58,6 +61,7 @@ module "cloudfront" {
   default_ttl                   = 3600
   max_ttl                       = 86400
   cloudfront_invalidation_paths = var.cloudfront_invalidation_paths
+  allowed_countries             = var.allowed_countries
 }
 ```
 
@@ -68,3 +72,4 @@ module "cloudfront" {
   ```bash
   aws cloudfront create-invalidation --distribution-id <DISTRIBUTION_ID> --paths "/*"
   ```
+- Se han configurado restricciones geográficas (geo-restrictions) en CloudFront para permitir el acceso solo desde USA y Europa.

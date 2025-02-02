@@ -39,3 +39,9 @@ variable "cloudfront_invalidation_paths" {
   type        = list(string)
   default     = []
 }
+
+variable "allowed_countries" {
+  description = "Lista de códigos de país permitidos (ISO 3166-1 alpha-2)"
+  type        = list(string)
+  default     = ["US"]
+}
