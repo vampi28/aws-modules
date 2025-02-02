@@ -27,18 +27,17 @@ terraform apply
 El código crea los siguientes recursos en AWS:
 
 - `aws_s3_bucket`: Este recurso crea un bucket S3 en AWS.
-- `aws_s3_bucket_versioning`: Configura el versionado en el bucket.
-- `aws_s3_bucket_server_side_encryption_configuration`: Habilita el cifrado del lado del servidor con AES256.
+- aws_s3_bucket_public_access_block: Configura las políticas de acceso público del bucket.
 
 ## Variables utilizadas
 
 Las variables pueden ser modificadas al realizar la llamada al módulo:
 
-| Nombre               | Descripción                                                                                      | Tipo        | Valor por defecto  | Obligatorio |
-|----------------------|--------------------------------------------------------------------------------------------------|-------------|--------------------|-------------|
-| `bucket_name`        | Especifica el nombre del bucket S3. Debe ser único a nivel global.                               | `string`    | -                  | Sí          |
-| `force_destroy`      | Permite eliminar el bucket incluso si contiene objetos.                                         | `bool`      | `false`            | No          |
-| `tags`               | Mapa de etiquetas que se asignarán dinámicamente al bucket S3.                                  | `map(string)` | `{}`              | No          |
+| Nombre          | Descripción                                                        | Tipo          | Valor por defecto | Obligatorio |
+| --------------- | ------------------------------------------------------------------ | ------------- | ----------------- | ----------- |
+| `bucket_name`   | Especifica el nombre del bucket S3. Debe ser único a nivel global. | `string`      | -                 | Sí          |
+| `force_destroy` | Permite eliminar el bucket incluso si contiene objetos.            | `bool`        | `false`           | No          |
+| `tags`          | Mapa de etiquetas que se asignarán dinámicamente al bucket S3.     | `map(string)` | `{}`              | No          |
 
 ## Ejemplo de uso
 

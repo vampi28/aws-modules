@@ -1,11 +1,7 @@
 variable "tags" {
   description = "Mapa de etiquetas para aplicar al bucket S3."
   type        = map(string)
-  default     = {
-    Environment = "Development"
-    Project     = "Terraform-S3"
-    Owner       = "Diego"
-  }
+  default     = {}
 }
 
 variable "bucket_name" {
