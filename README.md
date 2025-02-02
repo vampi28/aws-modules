@@ -4,7 +4,6 @@
 
 Este repositorio contiene una colección de módulos de Terraform para gestionar diversos recursos en AWS. Cada módulo está diseñado para ser reutilizable y configurable, facilitando la implementación de infraestructura en la nube de manera eficiente y consistente.
 
-
 ## Módulos Disponibles
 
 ### [ALB](alb/readme.md)
@@ -15,6 +14,9 @@ Este módulo crea y gestiona un Auto Scaling Group (ASG) en AWS, junto con sus p
 
 ### [CloudWatch Alarms (CPU y RAM)](cloudwatch-alarms-cpu-ram/readme.md)
 Este módulo configura alarmas de CPU y memoria para monitorizar el Auto Scaling Group y accionar las políticas de escalado según corresponda.
+
+### [CloudFront](cloudfront/readme.md)
+Este módulo crea una distribución de CloudFront en AWS para la entrega eficiente y segura de contenido.
 
 ### [Security Group](security_group/readme.md)
 Este módulo crea un Security Group con reglas de entrada (ingress) y de salida (egress) en AWS.
@@ -45,5 +47,3 @@ module "s3_bucket" {
     Team        = "DevOps"
   }
 }
-
-```
