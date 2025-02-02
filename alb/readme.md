@@ -70,3 +70,5 @@ module "alb" {
 
 - El ALB se configura con listeners para HTTP y HTTPS, permitiendo enrutar el tráfico al Target Group especificado.
 - La protección contra eliminación y el balanceo de carga entre zonas se pueden habilitar o deshabilitar según sea necesario.
+- Las comprobaciones de salud se configuran para verificar la ruta raíz (`/`) utilizando el protocolo HTTP, con un intervalo de 10 segundos, un tiempo de espera de 5 segundos, y umbrales de éxito y fallo de 2.
+- El tiempo de drenado de las instancias antiguas (`deregistration_delay`) se ha configurado a 30 segundos para permitir una transición más rápida entre instancias.

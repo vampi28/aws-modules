@@ -23,6 +23,8 @@ resource "aws_lb_target_group" "main" {
     unhealthy_threshold = 2
     matcher             = "200-299"
   }
+
+  deregistration_delay = 30
 }
 
 resource "aws_lb_listener" "http" {
