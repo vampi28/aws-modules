@@ -9,6 +9,9 @@ resource "aws_autoscaling_group" "app_asg" {
     version = var.launch_template_version
   }
 
+  health_check_type         = "ELB"
+  health_check_grace_period = 60
+
   target_group_arns = var.target_group_arns
 
   instance_refresh {

@@ -65,7 +65,8 @@ module "autoscaling" {
 ## Notas adicionales
 
 - El ASG ajusta automáticamente la cantidad de instancias basándose en las alarmas y políticas de escalado configuradas.
-- Se configura instance_refresh para llevar a cabo actualizaciones de manera gradual, manteniendo un porcentaje mínimo de instancias saludables
-
+- Se configura `instance_refresh` para llevar a cabo actualizaciones de manera gradual, manteniendo un porcentaje mínimo de instancias saludables.
+- El parámetro `health_check_type` se ha configurado a "ELB" para utilizar las comprobaciones de salud del Load Balancer.
+- El parámetro `health_check_grace_period` se ha configurado a 60 segundos para reducir el tiempo de gracia de las nuevas instancias.
 
 
