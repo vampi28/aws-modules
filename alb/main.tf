@@ -1,10 +1,10 @@
 resource "aws_lb" "main" {
-  name               = var.alb_name
-  internal           = var.internal
-  load_balancer_type = "application"
-  security_groups    = [var.security_group_id]
-  subnets            = var.subnets
-  enable_deletion_protection = var.enable_deletion_protection
+  name                             = var.alb_name
+  internal                         = var.internal
+  load_balancer_type               = "application"
+  security_groups                  = [var.security_group_id]
+  subnets                          = var.subnets
+  enable_deletion_protection       = var.enable_deletion_protection
   enable_cross_zone_load_balancing = var.enable_cross_zone_load_balancing
 }
 
@@ -13,6 +13,16 @@ resource "aws_lb_target_group" "main" {
   port     = var.target_group_port
   protocol = var.target_group_protocol
   vpc_id   = var.vpc_id
+
+  health_check {
+    interval            = 10
+    path                = "/"
+    protocol            = "HTTP"
+    timeout             = 5
+    healthy_threshold   = 2
+    unhealthy_threshold = 2
+    matcher             = "200-299"
+  }
 }
 
 resource "aws_lb_listener" "http" {
@@ -21,9 +31,9 @@ resource "aws_lb_listener" "http" {
   protocol          = "HTTP"
 
   default_action {
-    type             = "fixed-response"
+    type = "fixed-response"
     fixed_response {
-      status_code = 200
+      status_code  = 200
       content_type = "text/plain"
       message_body = "OK"
     }
