@@ -4,13 +4,21 @@ variable "function_name" {
 }
 
 variable "s3_bucket" {
-  description = "Nombre del bucket S3 que contiene el código fuente"
+  description = "Nombre del bucket S3"
   type        = string
+  default     = ""
 }
 
 variable "s3_key" {
-  description = "Clave del objeto S3 que contiene el código fuente"
+  description = "Clave del objeto en S3"
   type        = string
+  default     = ""
+}
+
+variable "filename" {
+  description = "Nombre del archivo ZIP"
+  type        = string
+  default     = ""
 }
 
 variable "handler" {
@@ -32,11 +40,17 @@ variable "environment_variables" {
 }
 
 variable "security_group_ids" {
-  description = "IDs de los security groups para la función Lambda"
+  description = "Lista de IDs de los Security Groups"
   type        = list(string)
 }
 
 variable "subnet_ids" {
-  description = "IDs de las subnets para la función Lambda"
+  description = "Lista de IDs de los Subnets"
   type        = list(string)
+}
+
+variable "region" {
+  description = "Región de AWS."
+  type        = string
+  default     = "us-east-1"
 }
